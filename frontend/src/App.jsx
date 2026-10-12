@@ -5,35 +5,39 @@ import OrderPage from "./features/menu/pages/OrderPage";
 
 export default function App() {
   return (
-    <div className="app-container">
-      <nav className="navbar">
-        <div className="navbar-brand">
-          <span className="brand-logo">🍔</span>
-          <span className="brand-name">CampusEats</span>
-          <span className="badge-tag">Task Tracker • Lab 11</span>
-        </div>
-        <div className="nav-links">
-          <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-            Menu
-          </NavLink>
-          <NavLink to="/order" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-            Place Order
-          </NavLink>
-        </div>
+    <div style={{ textAlign: "center", paddingTop: "20px" }}>
+      <nav style={{ marginBottom: "20px" }}>
+        <NavLink 
+          to="/" 
+          style={({ isActive }) => ({
+            color: "#818cf8",
+            textDecoration: "underline",
+            marginRight: "8px",
+            fontWeight: isActive ? "bold" : "normal"
+          })}
+        >
+          Menu
+        </NavLink>
+        <span style={{ color: "#9ca3af" }}>|</span>
+        <NavLink 
+          to="/order" 
+          style={({ isActive }) => ({
+            color: "#818cf8",
+            textDecoration: "underline",
+            marginLeft: "8px",
+            fontWeight: isActive ? "bold" : "normal"
+          })}
+        >
+          Place Order
+        </NavLink>
       </nav>
 
-      <main className="main-content">
-        <Routes>
-          <Route path="/" element={<MenuPage />} />
-          <Route path="/dish/:id" element={<DishDetailPage />} />
-          <Route path="/order" element={<OrderPage />} />
-          <Route path="*" element={<div className="state-container"><h2>404</h2><p>Page not found</p></div>} />
-        </Routes>
-      </main>
-
-      <footer className="footer">
-        <p>CampusEats • SE3090 Software Engineering Frameworks • Lab 11 DevOps & Cloud Hosting</p>
-      </footer>
+      <Routes>
+        <Route path="/" element={<MenuPage />} />
+        <Route path="/dish/:id" element={<DishDetailPage />} />
+        <Route path="/order" element={<OrderPage />} />
+        <Route path="*" element={<p>404 — Page not found</p>} />
+      </Routes>
     </div>
   );
 }

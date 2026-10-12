@@ -2,11 +2,11 @@ import DishCard from "./DishCard";
 
 function MenuList({ dishes }) {
   if (!dishes.length) {
-    return <p>No dishes match your search.</p>;
+    return <p style={{ color: "#9ca3af" }}>No dishes match your search.</p>;
   }
 
   return (
-    <div className="menu-grid">
+    <div style={{ marginTop: "24px" }}>
       {dishes.map((dish) => (
         <DishCard key={dish.id} dish={dish} />
       ))}

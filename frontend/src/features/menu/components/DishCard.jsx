@@ -1,21 +1,13 @@
-import { Link } from "react-router-dom";
-
 function DishCard({ dish }) {
   return (
-    <div className={`dish-card ${!dish.available ? "dish-card--unavailable" : ""}`}>
-      <div className="dish-card-header">
-        <span className="dish-category">{dish.category}</span>
-        <span className={`dish-status ${dish.available ? "status-available" : "status-soldout"}`}>
-          {dish.available ? "Available" : "Sold Out"}
-        </span>
-      </div>
-      <h3 className="dish-name">{dish.name}</h3>
-      <div className="dish-card-footer">
-        <span className="dish-price">Rs. {Number(dish.price).toFixed(2)}</span>
-        <Link to={`/dish/${dish.id}`} className="dish-detail-btn">
-          Details →
-        </Link>
-      </div>
+    <div style={{ margin: "28px 0" }}>
+      <h3 style={{ margin: "4px 0", fontSize: "1.3rem", fontWeight: 600 }}>{dish.name}</h3>
+      <p style={{ margin: "4px 0", color: "#9ca3af", fontSize: "1rem" }}>
+        Rs. {Number(dish.price).toFixed(2)}
+      </p>
+      <p style={{ margin: "4px 0", color: "#6b7280", fontSize: "0.9rem" }}>
+        {dish.category}
+      </p>
     </div>
   );
 }
